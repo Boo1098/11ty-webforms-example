@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+
+<div>
+
+    {{ content | safe }}
+    
+    <!--- Simple Form --->
+    <form action="/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Function to autofill the form fields based on URL parameters
+        // Source: ChatGPT
+        function autofillForm() {
+            const params = new URLSearchParams(window.location.search);
+
+            // Loop through all the parameters in the URL
+            params.forEach((value, key) => {
+                // Find the form field by the name or id that matches the parameter name
+                const field = document.querySelector(`[name="${key}"], [id="${key}"]`);
+                if (field) {
+                    // If it's a text or textarea field, set its value
+                    if (field.tagName === 'TEXTAREA' || field.type === 'text') {
+                        field.value = value;
+                    }
+                    // Optionally handle other types of input fields (checkbox, radio, etc.)
+                    // You can add more conditions here if needed (e.g., for radio buttons, checkboxes).
+                }
+            });
+        }
+
+        // Call autofill function on page load
+        window.onload = autofillForm;
+    </script>
+</div>

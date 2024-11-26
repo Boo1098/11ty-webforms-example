@@ -1,0 +1,9 @@
+services:
+  website:
+    build: .
+    container_name: my_website
+    ports:
+      - "3000:3000"
+    volumes:
+      # save submissions to local disk
+      - ./submissions:/app/submissions

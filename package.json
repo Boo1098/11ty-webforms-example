@@ -1,0 +1,19 @@
+{
+  "name": "11ty-webform-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve --watch",
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.1",
+    "simpledotcss": "^2.3.2"
+  }
+}
